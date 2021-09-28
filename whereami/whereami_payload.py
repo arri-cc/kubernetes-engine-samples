@@ -101,6 +101,12 @@ class WhereamiPayload(object):
             self.payload['host_header'] = request_headers.get('host')
         except:
             logging.warning("Unable to capture host header.")
+        
+        # get client IP
+        try:
+            self.payload['client_ip'] = request_headers.get('x-forwarded-for')
+        except:
+            logging.warning("Unabled to capture x-forwarded-for header")
 
         # get pod name, emoji & datetime
         self.payload['pod_name'] = socket.gethostname()
