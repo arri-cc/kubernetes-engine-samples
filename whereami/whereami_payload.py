@@ -37,7 +37,8 @@ class WhereamiPayload(object):
                                 'x-ot-span-context',
                                 'x-cloud-trace-context',
                                 'traceparent',
-                                'grpc-trace-bin'
+                                'grpc-trace-bin',
+                                'x-forwarded-for'
                                 ]
 
             for ihdr in incoming_headers:
